@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jmeterloadtest
+  labels:
+    app: jmeterloadtest
+    name: jmeterloadtest
+  namespace: konakart
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: jmeterloadtest
+  template:
+    metadata:
+      labels:
+        app: jmeterloadtest
+        name: jmeterloadtest
+    spec:
+      containers:
+      - name: jmeterloadtest
+        image: hamsadharishani/jmeter:latest
